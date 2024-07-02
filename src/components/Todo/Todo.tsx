@@ -16,7 +16,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
 import { Todo as TodoType, initialTodos } from "./data";
 
-const Todo: React.FC = () => {
+const Todo = () => {
   const [todos, setTodos] = useState<TodoType[]>(() => {
     const savedTodos = localStorage.getItem("todos");
     return savedTodos ? JSON.parse(savedTodos) : initialTodos;
