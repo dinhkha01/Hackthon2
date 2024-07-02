@@ -15,6 +15,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import AddIcon from "@mui/icons-material/Add";
 import { Todo as TodoType, initialTodos } from "./data";
+import { FavoriteBorder } from "@mui/icons-material";
 
 const Todo = () => {
   const [todos, setTodos] = useState<TodoType[]>(() => {
@@ -49,7 +50,7 @@ const Todo = () => {
     }
     const newTodo: TodoType = {
       id: Date.now(),
-      name: input.trim(),
+      name: input,
       completed: false,
     };
     setTodos([...todos, newTodo]);
@@ -102,7 +103,7 @@ const Todo = () => {
           sx={{ mb: 1 }}
           InputProps={{
             startAdornment: (
-              <AddIcon
+              <FavoriteBorder
                 sx={{
                   color: "action.active",
                   mr: 1,
