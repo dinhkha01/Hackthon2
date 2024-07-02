@@ -13,9 +13,8 @@ import {
 } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import AddIcon from "@mui/icons-material/Add";
-import { Todo as TodoType, initialTodos } from "./data";
 import { FavoriteBorder } from "@mui/icons-material";
+import { Todo as TodoType, initialTodos } from "./data";
 
 const Todo = () => {
   const [todos, setTodos] = useState<TodoType[]>(() => {
@@ -84,7 +83,7 @@ const Todo = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 500, margin: "auto", p: 2 }}>
+    <Box sx={{ maxWidth: 500, margin: "auto", p: 3 }}>
       <div>
         <Typography variant="h6" component="h1" gutterBottom align="center">
           TodoInput
@@ -100,7 +99,9 @@ const Todo = () => {
           onChange={handleInputChange}
           error={!!error}
           helperText={error}
-          sx={{ mb: 1 }}
+          sx={{
+            mb: 2,
+          }}
           InputProps={{
             startAdornment: (
               <FavoriteBorder
@@ -128,15 +129,17 @@ const Todo = () => {
       <Typography variant="h6" component="h2" gutterBottom align="center">
         TodoList
       </Typography>
-      <Paper elevation={0} sx={{ mb: 2 }}>
+      <Paper elevation={0} sx={{ mb: 3 }}>
         <List sx={{ bgcolor: "background.paper" }}>
           {todos.map((todo) => (
             <ListItem
               key={todo.id}
               disablePadding
               sx={{
-                borderBottom: "1px solid #e0e0e0",
-                "&:last-child": { borderBottom: "none" },
+                border: "2px solid #e0e0e0",
+                borderRadius: 3,
+                mb: 1,
+                p: 1,
               }}
             >
               <ListItemText
@@ -158,7 +161,7 @@ const Todo = () => {
               <IconButton
                 edge="end"
                 aria-label="edit"
-                sx={{ color: "#ffc107" }}
+                sx={{ color: "#ffc107", mr: 0.5 }}
               >
                 <EditIcon />
               </IconButton>
@@ -166,7 +169,7 @@ const Todo = () => {
                 edge="end"
                 aria-label="delete"
                 onClick={() => deleteTodo(todo.id)}
-                sx={{ color: "#f44336" }}
+                sx={{ color: "#f44336", mr: 1 }}
               >
                 <DeleteIcon />
               </IconButton>
